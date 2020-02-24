@@ -1,0 +1,54 @@
+﻿
+
+@model Spice.Models.ViewModels.SubCategoryAndCategoryViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Sub Category Details</h2>
+<br />
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="border backgroundWhite row">
+    <div class="col-8 ">
+
+        <input type="hidden" asp-for="SubCategory.CategoryId" />
+        <input type="hidden" asp-for="SubCategory.Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <fieldset disabled>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="SubCategory.Category.Name" class="col-form-label"> </label>
+                </div>
+                <div class="col-5">
+                    <input  asp-for="SubCategory.Category.Name" class="form-control" />
+                    @*<select disabled asp-for="SubCategory.CategoryId" id="ddlCategorylist" class="form-control" asp-items="Model.CategoryList.ToSelectListItem(Model.SubCategory.CategoryId)"></select>*@
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-3">
+                    <label asp-for="SubCategory.Name" class="col-form-label"> </label>
+                </div>
+                <div class="col-5">
+                    <input  asp-for="SubCategory.Name" class="form-control" />
+                </div>
+            </div>
+        </fieldset>
+            <div class="form-group row">
+                <div class="col-5 offset-3">
+                    <partial name="_EditOrBackToListButton" model="Model.SubCategory.Id" />
+                </div>
+
+            </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
