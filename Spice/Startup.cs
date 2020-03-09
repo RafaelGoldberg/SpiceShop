@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Spice.Services;
+using Spice.Utility;
+using Stripe;
 
 namespace Spice
 {
@@ -37,6 +39,7 @@ namespace Spice
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 
 
             services.AddControllersWithViews();
@@ -53,6 +56,14 @@ namespace Spice
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 
             });
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = "196928504922939";
+
+                facebookOptions.AppSecret = "623a5d5986e88eb7d53d875361026ce3";
+            });
+
             services.AddSession(options =>
             {
                 options.Cookie.IsEssential = true;
@@ -75,6 +86,10 @@ namespace Spice
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

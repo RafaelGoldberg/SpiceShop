@@ -17,6 +17,32 @@ namespace Spice.Utility
         public const string ssCartCount = "ssCartCount";
 		public const string ssCouponCode = "ssCouponCode";
 
+		public const string StatusSubmitted = "Submitted";
+		public const string StatusInProcess = "Being Prepared";
+		public const string StatusReady = "Ready For Pickup";
+		public const string StatusCompleted = "Completed";
+		public const string StatusCanceled = "Canceled";
+
+		public const string PaymentStatusPending = "Pending";
+		public const string PaymentStatusApproved = "Approved";
+		public const string PaymentStatusRejected = "Rejected";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		public static string ConvertToRawHtml(string source)
 		{
 			char[] array = new char[source.Length];

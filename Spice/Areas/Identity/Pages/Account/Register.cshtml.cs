@@ -67,15 +67,22 @@ namespace Spice.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
+            [Display(Name = "First Name")]
             public string FirstName { get; set; }
 
             [Required]
+            [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
+            [Display(Name = "Street Address")]
             public string StreetAddress { get; set; }
+
+            [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
             public string City { get; set; }
             public string State { get; set; }
+
+            [Display(Name = "Postal Code")]
             public string PostalCode { get; set; }
         }
 
