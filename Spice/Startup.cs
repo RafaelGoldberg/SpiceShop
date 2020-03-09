@@ -61,7 +61,7 @@ namespace Spice
             {
                 facebookOptions.AppId = "196928504922939";
 
-                facebookOptions.AppSecret = "623a5d5986e88eb7d53d875361026ce3";
+                facebookOptions.AppSecret = "****";// Add Secret Here
             });
 
             services.AddSession(options =>
